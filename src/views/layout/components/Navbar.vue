@@ -1,49 +1,65 @@
 <template>
   <div class="navbar">
-    <hamburger :toggle-click="toggleSideBar" :is-active="sidebar.opened" class="hamburger-container"/>
+    <!-- <hamburger :toggle-click="toggleSideBar" :is-active="sidebar.opened" class="hamburger-container"/> -->
 
-    <breadcrumb class="breadcrumb-container"/>
-
+    <!-- <breadcrumb class="breadcrumb-container"/> -->
     <div class="right-menu">
       <template v-if="device!=='mobile'">
-        <error-log class="errLog-container right-menu-item"/>
+        <!-- <error-log class="errLog-container right-menu-item"/> -->
 
-        <el-tooltip :content="$t('navbar.screenfull')" effect="dark" placement="bottom">
+        <!-- <el-tooltip :content="$t('navbar.screenfull')" effect="dark" placement="bottom">
           <screenfull class="screenfull right-menu-item"/>
-        </el-tooltip>
+        </el-tooltip> -->
 
-        <el-tooltip :content="$t('navbar.size')" effect="dark" placement="bottom">
+        <!-- <el-tooltip :content="$t('navbar.size')" effect="dark" placement="bottom">
           <size-select class="international right-menu-item"/>
-        </el-tooltip>
+        </el-tooltip> -->
 
-        <lang-select class="international right-menu-item"/>
+        <!-- <lang-select class="international right-menu-item"/> -->
 
-        <el-tooltip :content="$t('navbar.theme')" effect="dark" placement="bottom">
+        <!-- <el-tooltip :content="$t('navbar.theme')" effect="dark" placement="bottom">
           <theme-picker class="theme-switch right-menu-item"/>
-        </el-tooltip>
+        </el-tooltip> -->
       </template>
 
       <el-dropdown class="avatar-container right-menu-item" trigger="click">
         <div class="avatar-wrapper">
           <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar">
+          <span class="user-name">13544434443</span>
           <i class="el-icon-caret-bottom"/>
         </div>
         <el-dropdown-menu slot="dropdown">
-          <router-link to="/">
+          <!-- <router-link to="/">
             <el-dropdown-item>
               {{ $t('navbar.dashboard') }}
             </el-dropdown-item>
-          </router-link>
+          </router-link> -->
           <a target="_blank" href="https://github.com/PanJiaChen/vue-element-admin/">
             <el-dropdown-item>
-              {{ $t('navbar.github') }}
+              账号管理
             </el-dropdown-item>
           </a>
           <el-dropdown-item divided>
-            <span style="display:block;" @click="logout">{{ $t('navbar.logOut') }}</span>
+            <span style="display:block;" @click="logout">退出</span>
           </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
+    </div>
+    <div class="link-container">
+      <el-badge class="item">站内信</el-badge>
+      <span class="divider">|</span>
+      <el-badge class="item">平台客服</el-badge>
+      <span class="divider">|</span>
+      <el-badge is-dot class="item">规则中心</el-badge>
+      <span class="divider">|</span>
+      <el-badge is-dot class="item">帮助中心</el-badge>
+      <span class="divider">|</span>
+      <el-badge class="item">米学堂</el-badge>
+      <span class="divider">|</span>
+      <el-badge class="item">商家社区</el-badge>
+      <span class="divider">|</span>
+      <el-badge class="item">访问米多多</el-badge>
+      <span class="divider">|</span>
     </div>
   </div>
 </template>
@@ -91,24 +107,37 @@ export default {
 
 <style rel="stylesheet/scss" lang="scss" scoped>
 .navbar {
-  height: 50px;
-  line-height: 50px;
+  height: 56px;
+  line-height: 56px;
   border-radius: 0px !important;
-  .hamburger-container {
-    line-height: 58px;
-    height: 50px;
-    float: left;
-    padding: 0 10px;
-  }
-  .breadcrumb-container{
-    float: left;
-  }
+  background-color: rgb(84, 92, 100);
+  // .hamburger-container {
+  //   line-height: 58px;
+  //   height: 50px;
+  //   float: left;
+  //   padding: 0 10px;
+  // }
+  // .breadcrumb-container{
+  //   float: left;
+  // }
   .errLog-container {
     display: inline-block;
     vertical-align: top;
   }
+  .link-container {
+    float: right;
+    color: #fff;
+    height: 26px;
+    position: relative;
+    line-height: 26px;
+    margin-top: 14px;
+    .divider {
+      padding: 0px 10px;
+    }
+  }
   .right-menu {
     float: right;
+    padding-left: 10px;
     height: 100%;
     &:focus{
      outline: none;
@@ -131,18 +160,24 @@ export default {
       margin-right: 30px;
       .avatar-wrapper {
         cursor: pointer;
-        margin-top: 5px;
+        margin-top: 8px;
         position: relative;
         .user-avatar {
           width: 40px;
           height: 40px;
-          border-radius: 10px;
+          border-radius: 20px;
+        }
+        .user-name{
+          color: #fff;
+          vertical-align: text-bottom;
+          line-height: 40px;
         }
         .el-icon-caret-bottom {
           position: absolute;
           right: -20px;
-          top: 25px;
+          top: 18px;
           font-size: 12px;
+          color: #fff;
         }
       }
     }
