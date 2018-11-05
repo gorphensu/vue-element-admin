@@ -74,6 +74,29 @@ export const constantRouterMap = [
         meta: { title: '首页', icon: 'dashboard', noCache: true }
       }
     ]
+  },
+  {
+    path: '/order',
+    component: Layout,
+    redirect: '/order/index',
+    name: 'Order',
+    meta: {
+      title: '发货管理',
+      icon: 'dashboard'
+    },
+    children: [
+      {
+        path: 'order',
+        component: () => import('@/views/order/index'),
+        name: 'Order',
+        meta: { title: '订单查询', icon: 'dashboard', noCache: true }
+      }, {
+        path: 'feight',
+        component: () => import('@/views/feight/index'),
+        name: 'Feight',
+        meta: { title: '运费模板', icon: 'dashboard', noCache: true }
+      }
+    ]
   }
 ]
 

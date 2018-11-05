@@ -25,7 +25,7 @@
       <el-dropdown class="avatar-container right-menu-item" trigger="click">
         <div class="avatar-wrapper">
           <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar">
-          <span class="user-name">13544434443</span>
+          <span class="user-name">很长很长很长很长的很长的用户名13555545554</span>
           <i class="el-icon-caret-bottom"/>
         </div>
         <el-dropdown-menu slot="dropdown">
@@ -171,6 +171,11 @@ export default {
           color: #fff;
           vertical-align: text-bottom;
           line-height: 40px;
+          max-width: 168px;
+          display: inline-block;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
         }
         .el-icon-caret-bottom {
           position: absolute;
