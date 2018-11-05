@@ -73,11 +73,11 @@
           align="center"
           width="60">
           <template slot-scope="scope">
-            <el-button type="text"><i class="el-icon-edit-outline"/></el-button>
+            <el-button type="text"><i class="el-icon-edit-outline" @click="goToDetail(scope.row)"/></el-button>
           </template>
         </el-table-column>
       </el-table>
-      <div>
+      <div class="pagination">
         <el-pagination
           :current-page="page.index"
           :page-size="page.pageSize"
@@ -156,6 +156,9 @@ export default {
         3: '已签收'
       }
       return statusTextMap[cellValue]
+    },
+    goToDetail(row) {
+      this.$router.push({ path: `/order/order/${row.orderId}` })
     }
   }
 }

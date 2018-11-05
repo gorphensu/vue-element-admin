@@ -39,4 +39,5 @@ Mock.mock(/\/transaction\/list/, 'get', transactionAPI.getList)
 
 // Order
 Mock.mock(/\/order\/list/, 'post', orderAPI.getList)
+Mock.mock(/\/order\/detail/, 'post', orderAPI.getDetail)
 export default Mock

@@ -91,6 +91,13 @@ export const constantRouterMap = [
         name: 'Order',
         meta: { title: '订单查询', icon: 'dashboard', noCache: true }
       }, {
+        path: 'order/:id',
+        component: () => import('@/views/order/detail'),
+        name: 'Detail',
+        props: true,
+        hidden: true,
+        meta: { title: '订单详情', icon: 'dashboard', noCache: true }
+      }, {
         path: 'feight',
         component: () => import('@/views/feight/index'),
         name: 'Feight',

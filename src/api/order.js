@@ -7,3 +7,11 @@ export function fetchList(params) {
     params
   })
 }
+
+export function fetchDetail(params) {
+  return request({
+    url: 'order/detail',
+    method: 'post',
+    params
+  })
+}

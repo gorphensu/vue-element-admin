@@ -27,11 +27,16 @@ export default {
       return Number(params.orderStatus) === Number(item.orderStatus)
     })
     const totalCount = mockList.length
-    mockList = mockList.slice(params.pageIndex * params.pageSize, (Number(params.pageIndex) + 1) * params.pageSize)
+    mockList = mockList.slice((Number(params.pageIndex) - 1) * params.pageSize, params.pageIndex * params.pageSize)
     return {
       data: mockList,
       totalCount: totalCount,
       pageSize: 25
+    }
+  },
+  getDetail: config => {
+    // const params = param2Obj(config.url)
+    return {
     }
   }
 }
