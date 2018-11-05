@@ -18,7 +18,7 @@
     <div class="product-detail">
       <div class="title">商品详情</div>
       <div class="detail">
-        <img src="./images/default.png">
+        <img src="../order/images/default.png">
         <div class="product"><span>端蛮双面穿短外套女装春哥求韩版休闲百搭大码胖妹小外衣【红色 500g】 X 3</span></div>
       </div>
       <div class="remark">

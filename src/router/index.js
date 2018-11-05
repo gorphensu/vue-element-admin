@@ -86,12 +86,12 @@ export const constantRouterMap = [
     },
     children: [
       {
-        path: 'order',
+        path: 'index',
         component: () => import('@/views/order/index'),
         name: 'Order',
         meta: { title: '订单查询', icon: 'dashboard', noCache: true }
       }, {
-        path: 'order/:id',
+        path: ':id',
         component: () => import('@/views/order/detail'),
         name: 'Detail',
         props: true,
@@ -102,6 +102,31 @@ export const constantRouterMap = [
         component: () => import('@/views/feight/index'),
         name: 'Feight',
         meta: { title: '运费模板', icon: 'dashboard', noCache: true }
+      }
+    ]
+  },
+  {
+    path: '/aftersale',
+    component: Layout,
+    redirect: '/aftersale/index',
+    name: 'AfterSale',
+    meta: {
+      title: '售后管理',
+      icon: 'dashboard'
+    },
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/aftersale/index'),
+        name: 'AfterSale',
+        meta: { title: '退款退货', icon: 'dashboard', noCache: true }
+      }, {
+        path: ':id',
+        component: () => import('@/views/aftersale/detail'),
+        name: 'Detail',
+        props: true,
+        hidden: true,
+        meta: { title: '订单详情', icon: 'dashboard', noCache: true }
       }
     ]
   }
