@@ -88,12 +88,12 @@ export const constantRouterMap = [
       {
         path: 'index',
         component: () => import('@/views/order/index'),
-        name: 'Order',
+        name: 'OrderList',
         meta: { title: '订单查询', icon: 'dashboard', noCache: true }
       }, {
         path: 'detail/:id',
         component: () => import('@/views/order/detail'),
-        name: 'Detail',
+        name: 'OrderDetail',
         props: true,
         hidden: true,
         meta: { title: '订单详情', icon: 'dashboard', noCache: true }
@@ -118,12 +118,12 @@ export const constantRouterMap = [
       {
         path: 'index',
         component: () => import('@/views/aftersale/index'),
-        name: 'AfterSale',
+        name: 'AfterSaleList',
         meta: { title: '退款退货', icon: 'dashboard', noCache: true }
       }, {
         path: 'detail/:id',
         component: () => import('@/views/aftersale/detail'),
-        name: 'Detail',
+        name: 'AfterSaleDetail',
         props: true,
         hidden: true,
         meta: { title: '订单详情', icon: 'dashboard', noCache: true }

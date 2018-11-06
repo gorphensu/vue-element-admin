@@ -5,6 +5,7 @@ import remoteSearchAPI from './remoteSearch'
 import transactionAPI from './transaction'
 import orderAPI from './order'
 import AfterSaleAPI from './aftersale'
+import Feight from './feight'
 
 // 修复在使用 MockJS 情况下，设置 withCredentials = true，且未被拦截的跨域请求丢失 Cookies 的问题
 // https://github.com/nuysoft/Mock/issues/300
@@ -48,5 +49,10 @@ Mock.mock(/\/aftersale\/detail/, 'post', AfterSaleAPI.getDetail)
 Mock.mock(/\/aftersale\/returnaddress/, 'post', AfterSaleAPI.getReturnList)
 Mock.mock(/\/aftersale\/deletereturnaddress/, 'post', AfterSaleAPI.deleteReturnAddress)
 Mock.mock(/\/aftersale\/addreturnaddress/, 'post', AfterSaleAPI.addReturnAddress)
+
+// Feight
+Mock.mock(/\/feight\/list/, 'post', Feight.getList)
+Mock.mock(/\/feight\/detail/, 'post', Feight.getDetail)
+Mock.mock(/\/feight\/deletefeight/, 'post', Feight.deletefeight)
 
 export default Mock

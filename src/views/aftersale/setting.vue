@@ -47,16 +47,16 @@
     </el-table>
     <el-dialog
       :visible.sync="showDialog"
-      :show-close="false"
       :close-on-click-modal="false"
       :close-on-press-escape="false"
+      :before-close="closeHandler"
       title="退货地址"
       width="40%">
-      <el-form ref="form" :model="addressForm" label-width="110px" size="small">
+      <el-form ref="form" :model="addressForm" :rules="rules" label-width="120px" size="small">
         <el-form-item label="退货地点名称：" prop="returnAddressName">
           <el-input v-model="addressForm.returnAddressName"/>
         </el-form-item>
-        <el-form-item label="区域" prop="area">
+        <el-form-item label="区域：" prop="area">
           <el-cascader :options="[]" v-model="addressForm.area" change-on-select @change="areaChangeHandler"/>
         </el-form-item>
         <el-form-item label="详细地址：" prop="address">
@@ -88,7 +88,43 @@ export default {
       mobile: '',
       tableData: [],
       showDialog: false,
-      addressForm: {}
+      addressForm: {
+        returnAddressName: '',
+        area: [],
+        address: '',
+        receiver: '',
+        receiveMobile: ''
+      },
+      rules: {
+        returnAddressName: {
+          required: true,
+          message: '请输入活动名称',
+          trigger: 'blur'
+        },
+        area: {
+          required: true,
+          message: '请选择区域',
+          trigger: 'change',
+          validator: function(rule, value, callback, source, options) {
+            callback()
+          }
+        },
+        address: {
+          required: true,
+          message: '请输入详细地址',
+          trigger: 'blur'
+        },
+        receiver: {
+          required: true,
+          message: '请输入收件人',
+          trigger: 'blur'
+        },
+        receiveMobile: {
+          required: true,
+          message: '收件人电话',
+          trigger: 'blur'
+        }
+      }
     }
   },
   created() {
@@ -112,6 +148,15 @@ export default {
           message: '保存失败!'
         })
       })
+    },
+    closeHandler() {
+      // 重置form
+      this.showDialog = false
+      this.addressForm.addReturnAddress = ''
+      this.addressForm.area = []
+      this.addressForm.address = ''
+      this.addressForm.receiver = ''
+      this.addressForm.receiveMobile = ''
     },
     getReturnAddressList() {
       AfterSaleAPI.fetchReturnAddressList().then(response => {
