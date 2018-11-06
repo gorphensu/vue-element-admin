@@ -1,0 +1,17 @@
+.product-container {
+  .search-container {
+    padding-bottom: 0px;
+    .el-form-item {
+      .el-form-item__label {
+        font-weight: 400;
+        width: 90px;
+      }
+      .el-form-item__content {
+        width: 200px;
+        .el-select {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

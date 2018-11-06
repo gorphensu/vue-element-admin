@@ -4,6 +4,7 @@ import articleAPI from './article'
 import remoteSearchAPI from './remoteSearch'
 import transactionAPI from './transaction'
 import orderAPI from './order'
+import productAPI from './product'
 import AfterSaleAPI from './aftersale'
 import Feight from './feight'
 import BaseData from './basedata'
@@ -43,6 +44,10 @@ Mock.mock(/\/transaction\/list/, 'get', transactionAPI.getList)
 // Order
 Mock.mock(/\/order\/list/, 'post', orderAPI.getList)
 Mock.mock(/\/order\/detail/, 'post', orderAPI.getDetail)
+
+// Product
+Mock.mock(/\/product\/list/, 'post', productAPI.getList)
+Mock.mock(/\/product\/detail/, 'post', productAPI.getDetail)
 
 // AfterSale
 Mock.mock(/\/aftersale\/list/, 'post', AfterSaleAPI.getList)

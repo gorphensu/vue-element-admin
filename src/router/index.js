@@ -148,6 +148,23 @@ export const constantRouterMap = [
         meta: { title: '售后设置', icon: 'dashboard', noCache: true }
       }
     ]
+  },
+  {
+    path: '/product',
+    component: Layout,
+    redirect: '/product/index',
+    name: 'Product',
+    meta: {
+      title: '商品管理',
+      icon: 'dashboard'
+    },
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/product/index'),
+        name: 'ProductList',
+        meta: { title: '商品列表', icon: 'dashboard', noCache: true }
+      }]
   }
 ]
 
