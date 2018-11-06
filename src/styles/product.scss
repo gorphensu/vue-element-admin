@@ -15,3 +15,29 @@
     }
   }
 }
+
+
+.product-detail {
+  .border-block {
+    // border: 1px solid transparent;
+    .block-item {
+      padding: 20px;
+      border: 1px solid #efefef;
+      border-bottom: 0px;
+      .title {
+        font-size: 16px;
+        padding-bottom: 10px;
+        .no {
+          color: #409eff;
+        }
+      }
+    }
+    .block-item.last-child {
+      border-bottom: 1px solid #efefef !important;
+    }
+  }
+  .btn-container {
+    text-align: center;
+    padding: 20px;
+  }
+}

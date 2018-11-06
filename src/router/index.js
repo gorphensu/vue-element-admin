@@ -164,6 +164,13 @@ export const constantRouterMap = [
         component: () => import('@/views/product/index'),
         name: 'ProductList',
         meta: { title: '商品列表', icon: 'dashboard', noCache: true }
+      }, {
+        path: 'detail/:id',
+        component: () => import('@/views/product/detail'),
+        name: 'ProductDetail',
+        props: true,
+        hidden: true,
+        meta: { title: '商品详情', icon: 'dashboard', noCache: true }
       }]
   }
 ]
