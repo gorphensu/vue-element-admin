@@ -6,3 +6,23 @@
     top: 10px;
   }
 }
+
+.feight-detail {
+  .block-container {
+    margin-top: 20px;
+    background: #f2f2f2;
+    padding: 20px;
+
+    .el-checkbox-group {
+      .el-checkbox.is-bordered {
+        background: #fff;
+        margin-left: 0px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+  .template-form {
+    width: 500px;
+  }
+}

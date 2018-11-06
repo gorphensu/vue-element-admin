@@ -6,6 +6,7 @@ import transactionAPI from './transaction'
 import orderAPI from './order'
 import AfterSaleAPI from './aftersale'
 import Feight from './feight'
+import BaseData from './basedata'
 
 // 修复在使用 MockJS 情况下，设置 withCredentials = true，且未被拦截的跨域请求丢失 Cookies 的问题
 // https://github.com/nuysoft/Mock/issues/300
@@ -55,4 +56,6 @@ Mock.mock(/\/feight\/list/, 'post', Feight.getList)
 Mock.mock(/\/feight\/detail/, 'post', Feight.getDetail)
 Mock.mock(/\/feight\/deletefeight/, 'post', Feight.deletefeight)
 
+// BaseData
+Mock.mock(/\/basedata\/getprovinces/, 'post', BaseData.getProvinces)
 export default Mock

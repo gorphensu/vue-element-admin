@@ -98,10 +98,24 @@ export const constantRouterMap = [
         hidden: true,
         meta: { title: '订单详情', icon: 'dashboard', noCache: true }
       }, {
-        path: 'feight',
+        path: '/feight/index',
         component: () => import('@/views/feight/index'),
         name: 'Feight',
         meta: { title: '运费模板', icon: 'dashboard', noCache: true }
+      }, {
+        path: '/feight/detail/:id',
+        component: () => import('@/views/feight/detail'),
+        name: 'FeightAdd',
+        props: true,
+        hidden: true,
+        meta: { title: '运费模板详情', icon: 'dashboard', noCache: true }
+      }, {
+        path: '/feight/detail',
+        component: () => import('@/views/feight/detail'),
+        name: 'FeightDetail',
+        props: true,
+        hidden: true,
+        meta: { title: '运费模板详情', icon: 'dashboard', noCache: true }
       }
     ]
   },

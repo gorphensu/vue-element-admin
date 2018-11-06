@@ -88,8 +88,10 @@ export default {
     goDetail(row) {
       if (!row) {
         // 新建
+        this.$router.push({ path: `/feight/detail` })
       } else {
         // 编辑
+        this.$router.push({ path: `/feight/detail/${row.id}` })
       }
     }
   }
