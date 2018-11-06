@@ -32,9 +32,65 @@
       <el-button type="text">反选</el-button>
     </div>
     <div class="block-container">
-      <el-checkbox-group v-model="noFreeShippingArea">
+      <el-checkbox-group v-model="noFreeShippingByCountArea">
         <el-checkbox v-for="item in areaOptions" :key="item.code" :label="item.code" border>{{ item.name }}</el-checkbox>
       </el-checkbox-group>
+      <div>
+        <el-form :inline="true" :model="noFreeShippingByCountForm" size="mini">
+          <el-form-item label="配送运费： 首件：">
+            <el-input v-model="noFreeShippingByCountForm.firstCount" />
+          </el-form-item>
+          <el-form-item label="首费：">
+            <el-input v-model="noFreeShippingByCountForm.firstAmount" />
+          </el-form-item>
+          <el-form-item label="续件：">
+            <el-input v-model="noFreeShippingByCountForm.addCount" />
+          </el-form-item>
+          <el-form-item label="续费：">
+            <el-input v-model="noFreeShippingByCountForm.addAmount" />
+          </el-form-item>
+        </el-form>
+      </div>
+    </div>
+    <div class="title">付邮费地区（按重量计算） &nbsp;&nbsp;&nbsp;&nbsp;
+      <el-button type="text">全选</el-button>
+      <el-button type="text">取消选择</el-button>
+      <el-button type="text">反选</el-button>
+    </div>
+    <div class="block-container">
+      <el-checkbox-group v-model="noFreeShippingByWeightArea">
+        <el-checkbox v-for="item in areaOptions" :key="item.code" :label="item.code" border>{{ item.name }}</el-checkbox>
+      </el-checkbox-group>
+      <div>
+        <el-form :inline="true" :model="noFreeShippingByCountForm" size="mini">
+          <el-form-item label="配送运费： 首重：">
+            <el-input v-model="noFreeShippingByCountForm.firstWeight" />g
+          </el-form-item>
+          <el-form-item label="首费：">
+            <el-input v-model="noFreeShippingByCountForm.firstAmount" />
+          </el-form-item>
+          <el-form-item label="续重：">
+            <el-input v-model="noFreeShippingByCountForm.addWeight" />g
+          </el-form-item>
+          <el-form-item label="续费：">
+            <el-input v-model="noFreeShippingByCountForm.addAmount" />
+          </el-form-item>
+        </el-form>
+      </div>
+    </div>
+    <div class="title">不配送 &nbsp;&nbsp;&nbsp;&nbsp;
+      <el-button type="text">全选</el-button>
+      <el-button type="text">取消选择</el-button>
+      <el-button type="text">反选</el-button>
+    </div>
+    <div class="block-container">
+      <el-checkbox-group v-model="noShippingArea">
+        <el-checkbox v-for="item in areaOptions" :key="item.code" :label="item.code" border>{{ item.name }}</el-checkbox>
+      </el-checkbox-group>
+    </div>
+    <div class="btn-container">
+      <el-button type="danger" @click="saveHandler">确定</el-button>
+      <el-button type="default" @click="cancelHandler">取消</el-button>
     </div>
   </div>
 </template>
@@ -48,10 +104,24 @@ export default {
       isEditStatus: false,
       areaOptions: [],
       freeShippingArea: [],
-      noFreeShippingArea: [],
+      noFreeShippingByCountArea: [],
+      noFreeShippingByWeightArea: [],
+      noShippingArea: [],
       templateForm: {
         templateName: '',
         area: []
+      },
+      noFreeShippingByCountForm: { // 付邮费地区（按件计算）
+        firstCount: '', // 首件
+        firstAmount: '', // 首费
+        addCount: '', // 续件
+        addAmount: '' // 续费
+      },
+      noFreeShippingByWeightForm: { // 付邮费地区（按重量计算）
+        firstWeight: '', // 首重
+        firstAmount: '', // 首费
+        addWeight: '', // 续重
+        addAmount: '' // 续费
       },
       rules: {
         templateName: {
@@ -86,6 +156,13 @@ export default {
       }).catch(error => {
         console.error(error)
       })
+    },
+    cancelHandler() {
+      // 取消
+      this.$router.go(-1)
+    },
+    saveHandler() {
+      // 保存
     }
   }
 }
