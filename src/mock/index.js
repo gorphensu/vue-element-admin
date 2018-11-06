@@ -45,4 +45,8 @@ Mock.mock(/\/order\/detail/, 'post', orderAPI.getDetail)
 // AfterSale
 Mock.mock(/\/aftersale\/list/, 'post', AfterSaleAPI.getList)
 Mock.mock(/\/aftersale\/detail/, 'post', AfterSaleAPI.getDetail)
+Mock.mock(/\/aftersale\/returnaddress/, 'post', AfterSaleAPI.getReturnList)
+Mock.mock(/\/aftersale\/deletereturnaddress/, 'post', AfterSaleAPI.deleteReturnAddress)
+Mock.mock(/\/aftersale\/addreturnaddress/, 'post', AfterSaleAPI.addReturnAddress)
+
 export default Mock

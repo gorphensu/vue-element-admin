@@ -4,6 +4,9 @@ import { param2Obj } from '@/utils'
 const List = []
 const count = 200
 
+const ReturnList = []
+const returnCount = 10
+
 for (let i = 0; i < count; i++) {
   List.push(Mock.mock({
     id: '@increment',
@@ -15,6 +18,17 @@ for (let i = 0; i < count; i++) {
     afterSaleType: '仅退款',
     buyer: 'WX小明儿名字很长很长很长很长咯12312312',
     createTime: '2018.09.09 12:12:05'
+  }))
+}
+
+for (let i = 0; i < returnCount; i++) {
+  ReturnList.push(Mock.mock({
+    id: '@increment',
+    returnAddressName: '官方退货点' + '@increment',
+    receiver: '林大哥',
+    receiveMobile: '15622333212',
+    area: '广东省广州市天河区',
+    address: '天河路金水大道15号金星大厦1202'
   }))
 }
 
@@ -37,6 +51,17 @@ export default {
   },
   getDetail: config => {
     // const params = param2Obj(config.url)
+    return {
+    }
+  },
+  getReturnList: config => {
+    return ReturnList
+  },
+  deleteReturnAddress: config => {
+    return {
+    }
+  },
+  addReturnAddress: config => {
     return {
     }
   }

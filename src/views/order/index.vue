@@ -158,7 +158,7 @@ export default {
       return statusTextMap[cellValue]
     },
     goToDetail(row) {
-      this.$router.push({ path: `/order/${row.orderId}` })
+      this.$router.push({ path: `/order/detail/${row.orderId}` })
     }
   }
 }

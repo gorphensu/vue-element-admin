@@ -64,7 +64,7 @@
   </div>
 </template>
 <script>
-import * as OrderAPI from '../../api/order'
+import * as AfterSaleAPI from '../../api/aftersale'
 
 export default {
   data() {
@@ -78,7 +78,7 @@ export default {
   },
   methods: {
     getData(id) {
-      OrderAPI.fetchDetail(id).then(response => {
+      AfterSaleAPI.fetchDetail(id).then(response => {
         const data = response.data
         console.log(data)
       }).catch(error => {
