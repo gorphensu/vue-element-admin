@@ -46,9 +46,27 @@
             align-items: center;
             position: relative;
           }
-          .spec-photo {
-            height: 38px;
-            width: 38px;
+          .spec-form {
+            .el-input {
+              width: 150px;
+            }
+            .spec-photo {
+              margin-top: 10px;
+              height: 150px;
+              width: 150px;
+              border-radius: 4px;
+              color: #8c939d;
+            }
+            .icon-plus {
+              margin-top: 10px;
+              width: 150px;
+              height: 150px;
+              line-height: 150px;
+              font-size: 40px;
+              border: 1px solid #dedede;
+              border-radius: 4px;
+              color: #8c939d;
+            }
           }
           .float-right {
             float: right;
@@ -64,6 +82,35 @@
               right: -10px;
               top: -10px;
               cursor: pointer;
+            }
+          }
+          .spec-table {
+            .table-input {
+              margin-top: 10px;
+              margin-bottom: 10px;
+            }
+            .table-upload {
+              margin-top: 10px;
+              margin-bottom: 10px;
+              .spec-photo {
+                width: 40px;
+                height: 40px;
+                border-radius: 2px;
+                border: 1px solid #dcdfe6;
+              }
+              .icon-plus {
+                width: 40px;
+                height: 40px;
+                border-radius: 2px;
+                border: 1px solid #dcdfe6;
+                line-height: 40px;
+              }
+            }
+            .table-upload.is-required {
+              .icon-plus {
+                border: 1px solid #f56c6c;
+                color: #f56c6c;
+              }
             }
           }
         }
@@ -85,6 +132,54 @@
     }
     .panel-body {
       background: #f7f7f7;
+    }
+    .batch-setting {
+      background: #fff;
+      padding: 10px;
+      .el-form-item {
+        margin-bottom: 0px;
+      }
+      .el-input {
+        width: 90px;
+      }
+    }
+  }
+  .base-form {
+    flex: 1;
+    .title-item {
+      width: 600px;
+    }
+    .width600 {
+      width: 600px;
+    }
+    .el-upload--picture-card {
+      width: 128px;
+      height: 128px;
+      line-height: 124px;
+      position: relative;
+      .mark {
+        color: #8c939d;
+        position: absolute;
+        top: 40px;
+        left: 0;
+        height: 20px;
+        width: 100%;
+      }
+    }
+    .el-upload-list--picture-card {
+      .el-upload-list__item {
+        width: 128px;
+        height: 128px;
+      }
+      .el-upload-list__item-preview {
+        display: none;
+      }
+    }
+    .is-required .el-upload--picture-card {
+      border: 1px dashed #f56c6c;
+      .el-icon-plus {
+        color: #f56c6c !important;
+      }
     }
   }
 }

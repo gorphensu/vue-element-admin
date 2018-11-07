@@ -11,6 +11,19 @@
           <span class="no">1</span>
           商品基本信息
         </div>
+        <div class="content">
+          <el-form ref="baseForm" :model="baseForm" size="" class="base-form" label-width="120px">
+            <CategoryItem v-model="baseForm.category" :required="true" label="商品分类" prop="category"/>
+            <el-form-item :rules="baseFormRule.title" label="商品标题" prop="title" class="width600">
+              <el-input v-model="baseForm.title" placeholder="商品标题组成：商品描述+规格"/>
+            </el-form-item>
+            <UploadListItem v-model="baseForm.carouselImages" :required="true" :max-length="2" label="商品轮播图" prop="carouselImages"/>
+            <el-form-item label="描述" prop="desc" class="width600">
+              <el-input v-model="baseForm.desc" :autosize="{ minRows: 4, maxRows: 10 }" type="textarea" placeholder="建议300字左右"/>
+            </el-form-item>
+            <UploadListItem v-model="baseForm.detailImages" :required="true" :max-length="2" label="商品详情图" prop="detailImages"/>
+          </el-form>
+        </div>
       </div>
 
       <div class="block-item">
@@ -34,44 +47,126 @@
                     :value="item.id" />
                 </el-select>
                 &nbsp;
-                <img v-if="specItem.image" :src="specItem.image" class="spec-photo">
-                <el-upload
+                <!-- <el-upload
                   :show-file-list="false"
                   :on-success="specUploadSuccessHandler"
                   :before-upload="beforeSpecUploadHandler(specItem)"
                   class="spec-uploader"
                   action="https://jsonplaceholder.typicode.com/posts/">
                   <el-button v-show="!specItem.image" type="text">添加图片</el-button>
-                </el-upload>
+                </el-upload> -->
                 <!-- <el-button v-show="!specItem.image" type="text">添加图片</el-button> -->
-                <el-button v-show="specItem.image" type="text">删除图片</el-button>
+                <el-checkbox v-model="specItem.image">添加图片</el-checkbox>
                 <el-button type="text" class="float-right" @click="deleteSpecTypeHandler(index)">删除规格</el-button>
               </div>
               <div class="panel-body">
-                <el-form ref="specForm" :model="specItem" :inline="true" size="mini">
+                <el-form :ref="'specForm' + '-' + index" :model="specItem" :inline="true" size="mini" class="spec-form">
                   <el-form-item
                     v-for="(spec, $index) in specItem.data"
                     :key="$index"
                     :rules="{ required: true, message: ' ', trigger: 'blur' }"
-                    :prop="'data.' + $index">
-                    <el-input v-model="specItem.data[$index]" />
+                    :prop="'data.' + $index + '.text'">
+                    <el-input v-model="specItem.data[$index].text" />
                     <i class="el-icon-error" @click="deleteSpecHandler(specItem.data, $index)"/>
+                    <el-upload
+                      v-if="specItem.image"
+                      :show-file-list="false"
+                      :on-success="specUploadSuccessHandler"
+                      :before-upload="beforeSpecUploadHandler(specItem.data, $index)"
+                      class="spec-uploader"
+                      action="https://jsonplaceholder.typicode.com/posts/">
+                      <img v-if="specItem.data[$index].image" :src="specItem.data[$index].image" class="spec-photo">
+                      <i v-else class="el-icon-plus icon-plus"/>
+                    </el-upload>
                   </el-form-item>
                   <el-button type="text" @click="addSpecHandler(specItem, index, specItem.data)">添加</el-button>
                 </el-form>
+                <br>
               </div>
               <br>
             </div>
             <div>
               <el-button type="default" @click="addSpecTypeHandler"><i class="el-icon-plus"/>添加规格</el-button>
             </div>
+            <br>
           </div>
         </div>
         <div class="content">
           <div class="label-content">价格及库存</div>
           <div class="inner-content">
             <div class="panel-container">
-              12
+              <div class="panel-body">
+                <div class="batch-setting">
+                  <el-form ref="specBatchForm" :model="batchForm" :inline="true" size="mini">
+                    <el-form-item label="批量设置:"/>
+                    <el-form-item label="库存">
+                      <el-input v-model="batchForm.stock" placeholder=""/>
+                    </el-form-item>
+                    <el-form-item label="单买价">
+                      <el-input v-model="batchForm.singlePrice" placeholder=""/>
+                    </el-form-item>
+                    <el-form-item label="拼团价">
+                      <el-input v-model="batchForm.teamPrice" placeholder=""/>
+                    </el-form-item>
+                    <el-form-item label="拼团人数">
+                      <el-input v-model="batchForm.teamCount" placeholder=""/>
+                    </el-form-item>
+                    <el-button type="default" size="mini" @click="batchConfirmHandler">确定</el-button>
+                  </el-form>
+                </div>
+                <br>
+                <!-- 规格表格 -->
+                {{ specTableData }}
+                <el-form :model="{}">
+                  <el-table :data="specTableData" border stripe style="width: 100%" class="spec-table">
+                    <el-table-column
+                      v-for="(column) in stockTableColumns"
+                      :key="column.column"
+                      :label="column.columnName"
+                      :prop="column.column" />
+                    <el-table-column
+                      label="*库存"
+                      prop="stock"
+                      width="150">
+                      <template slot-scope="scope">
+                        <TableInput v-model="scope.row.stock" :required="true" prop="stock"/>
+                      </template>
+                    </el-table-column>
+                    <el-table-column
+                      label="*单买价"
+                      prop="singlePrice"
+                      width="150">
+                      <template slot-scope="scope">
+                        <TableInput v-model="scope.row.singlePrice" :required="true" prop="singlePrice"/>
+                      </template>
+                    </el-table-column>
+                    <el-table-column
+                      label="*团购价"
+                      prop="teamPrice"
+                      width="150">
+                      <template slot-scope="scope">
+                        <TableInput v-model="scope.row.teamPrice" :required="true" prop="teamPrice"/>
+                      </template>
+                    </el-table-column>
+                    <el-table-column
+                      label="sku编码"
+                      prop="sku"
+                      width="150">
+                      <template slot-scope="scope">
+                        <TableInput v-model="scope.row.sku" :required="false" prop="sku"/>
+                      </template>
+                    </el-table-column>
+                    <el-table-column
+                      label="*预览图"
+                      prop="image"
+                      width="150">
+                      <template slot-scope="scope">
+                        <TableUpload v-model="scope.row.image" :required="true" prop="image"/>
+                      </template>
+                    </el-table-column>
+                  </el-table>
+                </el-form>
+              </div>
             </div>
           </div>
         </div>
@@ -129,8 +224,17 @@
 
 <script>
 import * as FeightAPI from '../../api/feight'
-
+import TableInput from './components/tableinputitem'
+import TableUpload from './components/tableuploaditem'
+import UploadListItem from './components/uploadlistitem'
+import CategoryItem from './components/categoryitem'
 export default {
+  components: {
+    TableInput,
+    TableUpload,
+    UploadListItem,
+    CategoryItem
+  },
   data() {
     return {
       specOptions: [{
@@ -143,13 +247,45 @@ export default {
         id: '3',
         name: '颜色'
       }],
+      baseForm: {
+        category: '',
+        title: '',
+        desc: '',
+        carouselImages: [],
+        detailImages: []
+      },
+      baseFormRule: {
+        title: [{
+          required: true,
+          trigger: 'blur',
+          validator(rule, value, callback) {
+            if (!value) {
+              return callback(' ')
+            }
+            if (value.length > 60) {
+              return callback('可输入字符长度:' + 60)
+            }
+            callback()
+          }
+        }]
+      },
       form2: {
         specs: [{
           specType: '1',
-          image2: 'https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=1240685591,3219211103&fm=58',
-          data: ['55寸']
+          image: true,
+          data: [{
+            image: '', // https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif?imageView2/1/w/80/h/80
+            text: '55尺寸'
+          }]
         }]
       },
+      batchForm: {
+        stock: '', // 库存
+        singlePrice: '',
+        teamPrice: '',
+        teamCount: ''
+      },
+      specTableData: [],
       form3: {
         productType: '',
         isSecond: '0',
@@ -182,14 +318,118 @@ export default {
       }
     }
   },
+  computed: {
+    stockTableColumns() {
+      const res = []
+      this.form2.specs.forEach((spec, index) => {
+        const specTypeObj = this.specOptions.find(option => {
+          return option.id === spec.specType
+        })
+        if (specTypeObj) {
+          res.push({
+            column: 'spec-' + index,
+            columnName: specTypeObj.name
+          })
+        }
+      })
+      // this.initStockTableDatas()
+      return res
+    }
+    // 表格的行数,2x2
+    // stockTableDatas() {
+    //   const datas = []
+    //   if (!this.stockTableColumns.length) {
+    //     return []
+    //   } else if (this.stockTableColumns.length === 1) {
+    //     this.form2.specs.forEach((spec, specIndex) => {
+    //       spec.data.forEach(data => { // data => image, text
+    //         datas.push({
+    //           'spec-0': data.text,
+    //           'spec-1': '',
+    //           stock: '',
+    //           singlePrice: '',
+    //           teamPrice: '',
+    //           sku: '',
+    //           image: ''
+    //         })
+    //       })
+    //     })
+    //   } else if (this.stockTableColumns.length === 2) {
+    //     this.form2.specs.forEach((spec, specIndex) => {
+    //       spec.data.forEach(data => {
+    //         datas.push({
+    //           'spec-0': this.stockTableColumns[specIndex].columnName,
+    //           'spec-1': data.text,
+    //           stock: '',
+    //           singlePrice: '',
+    //           teamPrice: '',
+    //           sku: '',
+    //           image: ''
+    //         })
+    //       })
+    //     })
+    //   }
+    //   return datas
+    // }
+  },
+  watch: {
+    'form2.specs': {
+      deep: true,
+      handler: function(val, oldVal) {
+        this.initStockTableDatas()
+      }
+    }
+  },
   created() {
     this.getFeightList()
+    this.initStockTableDatas()
   },
   beforeDestroy() {
     this._specItem = null
   },
   methods: {
+    initStockTableDatas() {
+      const datas = []
+      if (!this.stockTableColumns.length) {
+        return []
+      } else if (this.stockTableColumns.length === 1) {
+        this.form2.specs.forEach((spec, specIndex) => {
+          spec.data.forEach(data => { // data => image, text
+            datas.push({
+              'spec-0': data.text,
+              'spec-1': '',
+              stock: '',
+              singlePrice: '',
+              teamPrice: '',
+              sku: '',
+              image: ''
+            })
+          })
+        })
+      } else if (this.stockTableColumns.length === 2) {
+        this.form2.specs.forEach((spec, specIndex) => {
+          spec.data.forEach(data => {
+            datas.push({
+              'spec-0': this.stockTableColumns[specIndex].columnName,
+              'spec-1': data.text,
+              stock: '',
+              singlePrice: '',
+              teamPrice: '',
+              sku: '',
+              image: ''
+            })
+          })
+        })
+      }
+      this.specTableData = []
+      this.$nextTick(() => {
+        this.specTableData = datas
+      })
+    },
     saveHandler() {
+      this.$refs['baseForm'].validate(res => {
+        debugger
+      })
     },
     cancelHandler() {
       this.$router.go(-1)
@@ -205,11 +445,26 @@ export default {
       })
     },
     addSpecHandler(specItem, index, datas) {
-      const formVm = this.$refs['specForm'] && this.$refs['specForm'][index]
+      if (!specItem.specType) {
+        this.$message({
+          type: 'warning',
+          message: '请选择规格类型'
+        })
+        return
+      }
+      const formVm = this.$refs['specForm-' + index][0]
       if (formVm) {
         formVm.validate(result => {
           if (!result) return
-          datas.push('')
+          datas.push({
+            text: '',
+            image: ''
+          })
+        })
+      } else {
+        datas.push({
+          text: '',
+          image: ''
         })
       }
     },
@@ -233,7 +488,7 @@ export default {
       }
       this.form2.specs.push({
         specType: '',
-        image: '',
+        image: false,
         data: []
       })
     },
@@ -242,6 +497,8 @@ export default {
     },
     deleteSpecHandler(specDatas, index) {
       specDatas.splice(index, 1)
+    },
+    batchConfirmHandler() {
     }
   }
 }
