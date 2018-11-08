@@ -171,6 +171,16 @@ export const constantRouterMap = [
         props: true,
         hidden: true,
         meta: { title: '商品详情', icon: 'dashboard', noCache: true }
+      }, {
+        path: 'detail',
+        component: () => import('@/views/product/detail'),
+        name: 'ProductDetail',
+        meta: { title: '商品发布', icon: 'dashboard', noCache: true }
+      }, {
+        path: 'evaluate',
+        component: () => import('@/views/product/evaluate'),
+        name: 'Evaluate',
+        meta: { title: '评价管理', icon: 'dashboard', noCache: true }
       }]
   }
 ]

@@ -183,3 +183,30 @@
     }
   }
 }
+
+.evaluate-container {
+  .search-container {
+    .el-date-editor.el-range-editor {
+      width: 241px !important;
+    }
+    .date-range .el-form-item__content {
+      width: 241px !important;
+    }
+    .el-select__tags {
+      .el-tag--mini {
+        margin-left: 3px !important;
+        padding-right: 0px;
+        .el-tag__close {
+          right: 0px !important;
+        }
+      }
+      // width: 282px;
+    }
+    .multi-select .el-form-item__content{
+      width: 241px;
+    }
+    .el-form-item__label {
+      width: 76px !important;
+    }
+  }
+}

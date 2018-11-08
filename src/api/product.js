@@ -15,3 +15,11 @@ export function fetchDetail(params) {
     params
   })
 }
+
+export function fetchEvaluateList(params) {
+  return request({
+    url: '/evaluate/list',
+    method: 'post',
+    params
+  })
+}

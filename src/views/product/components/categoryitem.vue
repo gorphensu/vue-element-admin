@@ -3,6 +3,7 @@
     <el-cascader
       :options="options"
       v-model="selectedOptions"
+      filterable
       @change="handleChange"/>
   </el-form-item>
 </template>
@@ -31,6 +32,7 @@ export default {
   data() {
     return {
       inputValue: this.value,
+      selectedOptions: [],
       options: [{
         value: 'zhinan',
         label: '指南',

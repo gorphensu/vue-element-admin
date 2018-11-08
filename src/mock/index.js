@@ -48,6 +48,7 @@ Mock.mock(/\/order\/detail/, 'post', orderAPI.getDetail)
 // Product
 Mock.mock(/\/product\/list/, 'post', productAPI.getList)
 Mock.mock(/\/product\/detail/, 'post', productAPI.getDetail)
+Mock.mock(/\/evaluate\/list/, 'post', productAPI.fetchEvaluateList)
 
 // AfterSale
 Mock.mock(/\/aftersale\/list/, 'post', AfterSaleAPI.getList)
