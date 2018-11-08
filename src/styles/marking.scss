@@ -1,0 +1,110 @@
+.marking-container {
+  position: relative;
+  .block {
+    display: flex;
+    flex-shrink: 0;
+    position: relative;
+    flex-wrap: wrap;
+    .item {
+      cursor: pointer;
+      width: 48%;
+      height: 220px;
+      margin-right: 20px;
+      margin-bottom: 20px;
+      flex-shrink: 0;
+      .content {
+        height: 220px;
+        background: #f2f2f2;
+      }
+    }
+    .item:nth-child(2n) {
+    }
+  }
+  .marking-item {
+    padding: 20px;
+    color: #999999;
+    .main-section {
+      display: flex;
+      .icon {
+        border-radius: 3px;
+        font-size: 56px;
+        text-align: center;
+        background: #E990A0;
+        width: 78px;
+        height: 78px;
+        line-height: 78px;
+        color: #fff;
+      }
+      .main {
+        flex: 1;
+        padding-left: 20px;
+        padding-top: 5px;
+        font-size: 14px;
+        .title {
+          font-size: 18px;
+          color: #333333;
+        }
+        .tags {
+          margin-top: 8px;
+          height: 22px;
+          .tag {
+            border: 1px solid #D5521B;
+            color: #D5521B;
+            margin-right: 5px;
+          }
+        }
+        .level {
+          margin-top: 8px;
+          .el-icon-star-on {
+            color: #D5521B;
+          }
+        }
+      }
+    }
+    .remark-section {
+      font-size: 14px;
+      height: 22px;
+      margin-top: 15px;
+      .tip {
+        color: #D5521B;
+      }
+    }
+  }
+}
+
+.coupon-container {
+  .header-container {
+    background: #f2f2f2;
+    height: 120px;
+    display: flex;
+    padding: 20px;
+    .icon {
+      border-radius: 3px;
+      font-size: 56px;
+      text-align: center;
+      background: #E990A0;
+      width: 78px;
+      height: 78px;
+      line-height: 78px;
+      color: #fff;
+    }
+    .main {
+      flex: 1;
+      padding-left: 20px;
+      .title {
+        font-size: 18px;
+      }
+      .remark-section {
+        margin-top: 7px;
+        font-size: 14px;
+        height: 22px;
+        color: #666666;
+      }
+    }
+  }
+  .store-container {
+    .tip {
+      color: #D5521B;
+    }
+  }
+}

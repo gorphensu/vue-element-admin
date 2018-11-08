@@ -7,6 +7,7 @@ import orderAPI from './order'
 import productAPI from './product'
 import AfterSaleAPI from './aftersale'
 import Feight from './feight'
+import Coupon from './coupon'
 import BaseData from './basedata'
 
 // 修复在使用 MockJS 情况下，设置 withCredentials = true，且未被拦截的跨域请求丢失 Cookies 的问题
@@ -61,6 +62,9 @@ Mock.mock(/\/aftersale\/addreturnaddress/, 'post', AfterSaleAPI.addReturnAddress
 Mock.mock(/\/feight\/list/, 'post', Feight.getList)
 Mock.mock(/\/feight\/detail/, 'post', Feight.getDetail)
 Mock.mock(/\/feight\/deletefeight/, 'post', Feight.deletefeight)
+
+// Coupon
+Mock.mock(/\/coupon\/list/, 'post', Coupon.getList)
 
 // BaseData
 Mock.mock(/\/basedata\/getprovinces/, 'post', BaseData.getProvinces)

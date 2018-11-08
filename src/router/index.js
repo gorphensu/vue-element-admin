@@ -174,7 +174,7 @@ export const constantRouterMap = [
       }, {
         path: 'detail',
         component: () => import('@/views/product/detail'),
-        name: 'ProductDetail',
+        name: 'ProductAdd',
         meta: { title: '商品发布', icon: 'dashboard', noCache: true }
       }, {
         path: 'evaluate',
@@ -182,6 +182,30 @@ export const constantRouterMap = [
         name: 'Evaluate',
         meta: { title: '评价管理', icon: 'dashboard', noCache: true }
       }]
+  },
+  {
+    path: '/marking',
+    component: Layout,
+    redirect: '/marking/coupon',
+    name: 'Marking',
+    alwaysShow: true,
+    meta: {
+      title: '营销管理',
+      icon: 'dashboard'
+    },
+    children: [{
+      path: 'index',
+      component: () => import('@/views/marking/index'),
+      name: 'MarkingTool',
+      meta: { title: '营销工具', icon: 'dashboard', noCache: true }
+    }, {
+      path: 'coupon',
+      component: () => import('@/views/marking/coupon'),
+      props: true,
+      hidden: true,
+      name: 'Coupon',
+      meta: { title: '优惠券', icon: 'dashboard', noCache: true }
+    }]
   }
 ]
 
