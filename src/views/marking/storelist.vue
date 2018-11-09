@@ -99,6 +99,7 @@ export default {
     deleteHandler(row) {
     },
     goDetail(row) {
+      this.$router.push({ path: `/marking/storedetail/${row.id}` })
     }
   }
 }

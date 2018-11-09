@@ -13,7 +13,7 @@
         <div class="title">优惠券</div>
         <div class="remark-section">包括店铺优惠券和商品优惠券,平台优质商家都在使用,平均提高客单价和转化率30%</div>
         <div class="tags">
-          <el-button type="danger" size="mini"><i class="el-icon-plus"/>创建店铺优惠券</el-button>
+          <el-button type="danger" size="mini" @click="createStoreCoupon"><i class="el-icon-plus"/>创建店铺优惠券</el-button>
           <el-button type="danger" size="mini"><i class="el-icon-plus"/>创建商品优惠券</el-button>
         </div>
       </div>
@@ -41,6 +41,11 @@ export default {
   data() {
     return {
       activeTab: 'store'
+    }
+  },
+  methods: {
+    createStoreCoupon() {
+      this.$router.push({ path: `/marking/storedetail` })
     }
   }
 }

@@ -1,0 +1,63 @@
+.store-message {
+  .el-form {
+    width: 600px;
+    .detail-msg {
+      color: #666666;
+    }
+  }
+  .qrcode {
+    width: 128px;
+    height: 128px;
+  }
+  .el-icon-question {
+    font-size: 16px;
+    color: #999999;
+    cursor: pointer;
+  }
+  .logo-uploader {
+    display: inline-block;
+  }
+  .el-upload {
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    vertical-align: bottom;
+  }
+  .logo-uploader-icon {
+    font-size: 28px;
+    color: #8c939d;
+    width: 128px;
+    height: 128px;
+    line-height: 128px;
+    text-align: center;
+  }
+  .logo {
+    width: 128px;
+    height: 128px;
+    display: block;
+  }
+  .el-form-item.is-error {
+    .el-upload {
+      border: 1px dashed #f56c6c;
+    }
+    .logo-uploader-icon {
+      color: #f56c6c;
+    }
+  }
+  .width200input {
+    // width: 300px;
+    .el-input {
+      width: 200px;
+    }
+  }
+  .accept {
+    .el-checkbox__label {
+      white-space: normal;
+    }
+    .el-checkbox__input {
+      vertical-align: top;
+    }
+  }
+}

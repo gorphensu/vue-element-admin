@@ -205,6 +205,37 @@ export const constantRouterMap = [
       hidden: true,
       name: 'Coupon',
       meta: { title: '优惠券', icon: 'dashboard', noCache: true }
+    }, {
+      path: 'storedetail',
+      component: () => import('@/views/marking/storecoupondetail'),
+      props: true,
+      hidden: true,
+      name: 'StoreCouponAdd',
+      meta: { title: '店铺优惠券详情', icon: 'dashboard', noCache: true }
+    }, {
+      path: 'storedetail/:id',
+      component: () => import('@/views/marking/storecoupondetail'),
+      props: true,
+      hidden: true,
+      name: 'StoreCouponDetail',
+      meta: { title: '店铺优惠券详情', icon: 'dashboard', noCache: true }
+    }]
+  },
+  {
+    path: '/storemanager',
+    component: Layout,
+    redirect: '/storemanager/index',
+    name: 'StoreManager',
+    alwaysShow: true,
+    meta: {
+      title: '店铺管理',
+      icon: 'dashboard'
+    },
+    children: [{
+      path: 'index',
+      component: () => import('@/views/storemanager/index'),
+      name: 'Store',
+      meta: { title: '店铺信息', icon: 'dashboard', noCache: true }
     }]
   }
 ]

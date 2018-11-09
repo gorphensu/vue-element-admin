@@ -108,3 +108,20 @@
     }
   }
 }
+.storecoupon-detail-container {
+  .el-form {
+    width: 600px;
+  }
+  .expire-date-remark-item {
+    margin-top: -20px;
+    color: #666666;
+  }
+  .condition-item {
+    .el-input {
+      width: 300px;
+    }
+    .condition-left, .condition-right {
+      color: #666666;
+    }
+  }
+}
