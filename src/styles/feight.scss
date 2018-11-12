@@ -29,4 +29,14 @@
     text-align: center;
     padding: 20px;
   }
+  .item-width-95 {
+    .el-input {
+      width: 95%;
+    }
+  }
+  .unit {
+    position: absolute;
+    right: 0px;
+    float: right;
+  }
 }

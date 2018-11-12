@@ -16,6 +16,7 @@
     <el-table
       :data="tableData"
       border
+      class="header-table"
       style="width: 100%">
       <el-table-column
         prop="couponName"
@@ -35,8 +36,7 @@
         width="100" />
       <el-table-column
         prop="activeTime"
-        label="活动时间"
-        width="185" />
+        label="活动时间"/>
       <el-table-column
         prop="releaseCount"
         label="发行量"

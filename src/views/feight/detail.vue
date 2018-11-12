@@ -63,14 +63,14 @@
       </el-checkbox-group>
       <div>
         <el-form :inline="true" :model="noFreeShippingByCountForm" size="mini">
-          <el-form-item label="配送运费： 首重：">
-            <el-input v-model="noFreeShippingByCountForm.firstWeight" />g
+          <el-form-item label="配送运费： 首重：" class="item-width-95">
+            <el-input v-model="noFreeShippingByCountForm.firstWeight" /><span class="unit">g</span>
           </el-form-item>
           <el-form-item label="首费：">
             <el-input v-model="noFreeShippingByCountForm.firstAmount" />
           </el-form-item>
-          <el-form-item label="续重：">
-            <el-input v-model="noFreeShippingByCountForm.addWeight" />g
+          <el-form-item label="续重：" class="item-width-95">
+            <el-input v-model="noFreeShippingByCountForm.addWeight" /><span class="unit">g</span>
           </el-form-item>
           <el-form-item label="续费：">
             <el-input v-model="noFreeShippingByCountForm.addAmount" />

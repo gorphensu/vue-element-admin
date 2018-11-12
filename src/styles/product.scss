@@ -106,7 +106,7 @@
                 line-height: 40px;
               }
             }
-            .table-upload.is-required {
+            .table-upload.is-error {
               .icon-plus {
                 border: 1px solid #f56c6c;
                 color: #f56c6c;
@@ -175,7 +175,7 @@
         display: none;
       }
     }
-    .is-required .el-upload--picture-card {
+    .is-error .el-upload--picture-card {
       border: 1px dashed #f56c6c;
       .el-icon-plus {
         color: #f56c6c !important;
@@ -186,6 +186,9 @@
 
 .evaluate-container {
   .search-container {
+    .el-form-item {
+      margin-right: 5px;
+    }
     .el-date-editor.el-range-editor {
       width: 241px !important;
     }

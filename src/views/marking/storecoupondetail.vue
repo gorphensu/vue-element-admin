@@ -6,13 +6,17 @@
       <el-breadcrumb-item>店铺优惠券</el-breadcrumb-item>
     </el-breadcrumb>
     <br>
-    {{ baseForm }}
+    <!-- {{ baseForm }} -->
     <el-form ref="form" :model="baseForm" label-width="120px" size="small">
-      <el-form-item label="推广渠道" prop="channel">
+      <el-form-item label="推广渠道" prop="channel" class="form-item-margin-bottom-0">
         <el-checkbox-group v-model="baseForm.channel" size="small">
           <el-checkbox v-for="option in channelOptions" :key="option.id" :label="option.id" border>{{ option.name }}</el-checkbox>
         </el-checkbox-group>
       </el-form-item>
+      <el-form-item>
+        <span class="detail-msg">用户可以通过公开渠道主动领取优惠券,如店铺首页,商品详情页等</span>
+      </el-form-item>
+
       <el-form-item label="优惠券名称" prop="name">
         <el-input v-model="baseForm.name" />
       </el-form-item>
@@ -67,7 +71,8 @@ export default {
     return {
       channelOptions: [{
         id: '1',
-        name: '公开'
+        name: '公开',
+        tip: '用户可以通过公开渠道主动领取优惠券,如店铺首页,商品详情页等'
       }, {
         id: '2',
         name: '短信营销'
@@ -76,7 +81,7 @@ export default {
         name: '店铺收藏'
       }, {
         id: '4',
-        name: '非收藏'
+        name: '非公开'
       }],
       denominationOptions: [{
         id: '1',

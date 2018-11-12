@@ -51,6 +51,7 @@
             border: 1px solid #D5521B;
             color: #D5521B;
             margin-right: 5px;
+            padding: 1px 3px;
           }
         }
         .level {
@@ -111,6 +112,16 @@
 .storecoupon-detail-container {
   .el-form {
     width: 600px;
+    .form-item-margin-bottom-0 {
+      margin-bottom: 0px;
+    }
+    .form-item-margin-bottom-0.is-error {
+      margin-bottom: 18px;
+    }
+  }
+  .detail-msg {
+    color: #666666;
+    margin-top: -20px;
   }
   .expire-date-remark-item {
     margin-top: -20px;

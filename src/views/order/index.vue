@@ -59,7 +59,7 @@
     <br>
     <!-- 列表 -->
     <div class="list-container">
-      <el-table v-if="tableHeight" :height="tableHeight" :data="tableData" border style="width: 100%">
+      <el-table v-if="tableHeight" :height="tableHeight" :data="tableData" border style="width: 100%" class="header-table">
         <el-table-column prop="orderId" label="订单编号" align="center" width="200"/>
         <el-table-column prop="product" label="订单商品" align="center" width="300"/>
         <el-table-column prop="orderAmount" label="订单金额" align="center" width="200"/>

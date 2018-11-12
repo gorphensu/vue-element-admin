@@ -49,6 +49,28 @@
       margin: 15px 0px;
     }
   }
+  .table-show {
+    width: 500px;
+    text-align: center;
+    font-size: 14px;
+    .header-container {
+      background: #eef1f6;
+      border-bottom: 0px !important;
+    }
+    .header-container, .content-container {
+      display: flex;
+      height: 32px;
+      line-height: 32px;
+      border: 1px solid #e4e4e4;
+    }
+    .item {
+      flex: 1;
+      border-right: 1px solid #e4e4e4;
+    }
+    .item:last-of-type {
+      border-right: none;
+    }
+  }
   .product-detail {
     background: #f3f6f8;
     margin-top: 30px;

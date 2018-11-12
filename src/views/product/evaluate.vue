@@ -50,7 +50,7 @@
     <br>
     <!-- 列表 -->
     <div class="list-container">
-      <el-table v-if="tableHeight" :height="tableHeight" :data="tableData" border style="width: 100%">
+      <el-table v-if="tableHeight" :height="tableHeight" :data="tableData" border style="width: 100%" class="header-table">
         <el-table-column prop="productName" label="商品名称" align="center" width="300"/>
         <el-table-column prop="evaluation" label="评价内容" align="center"/>
         <el-table-column prop="evaluationLevel" label="商品评分" align="center" width="80"/>

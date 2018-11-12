@@ -28,10 +28,11 @@
       <el-radio-button label="2">售罄</el-radio-button>
       <el-radio-button label="3">下架</el-radio-button>
     </el-radio-group>
-
+    <br>
+    <br>
     <!-- 列表 -->
     <div class="list-container">
-      <el-table v-if="tableHeight" :height="tableHeight" :data="tableData" border style="width: 100%">
+      <el-table v-if="tableHeight" :height="tableHeight" :data="tableData" border style="width: 100%" class="header-table">
         <el-table-column prop="productId" label="商品ID" align="center" width="180"/>
         <el-table-column prop="productName" label="商品名称" align="center" width="300"/>
         <el-table-column prop="singlePrice" label="单购价" align="center" width="100"/>

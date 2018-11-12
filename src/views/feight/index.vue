@@ -12,6 +12,7 @@
     <el-table
       :data="tableData"
       border
+      class="header-table"
       style="width: 100%">
       <el-table-column
         prop="templateName"

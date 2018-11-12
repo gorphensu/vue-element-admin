@@ -36,7 +36,7 @@
           <div class="inner-content">
             <div class="remark">最多添加两个商品规格，第一个商品规格可添加规格图片</div>
             <br>
-            {{ form2 }}
+            <!-- {{ form2 }} -->
             <div v-for="(specItem, index) in form2.specs" :key="index" class="panel-container">
               <div class="panel-header">
                 <el-select v-model="specItem.specType" size="mini">
@@ -116,9 +116,9 @@
                 </div>
                 <br>
                 <!-- 规格表格 -->
-                {{ specTableData }}
+                <!-- {{ specTableData }} -->
                 <el-form :model="{}">
-                  <el-table :data="specTableData" border stripe style="width: 100%" class="spec-table">
+                  <el-table :data="specTableData" border stripe style="width: 100%" class="spec-table header-table">
                     <el-table-column
                       v-for="(column) in stockTableColumns"
                       :key="column.column"
@@ -215,7 +215,7 @@
         </div>
       </div>
       <div class="btn-container">
-        <el-button type="danger" @click="saveHandler">提交并上架</el-button>
+        <el-button type="primary" @click="saveHandler">提交并上架</el-button>
         <el-button type="default" @click="cancelHandler">取消</el-button>
       </div>
     </div>

@@ -43,11 +43,11 @@
             width="250"
             trigger="click">
             <div>
-              <span>绑定第三个店铺,即可累计全网销量,能够大幅提升您的店铺流量!</span><br>
+              <span>绑定第三个店铺,即可累计全网销量,能够大幅提升您的店铺流量!</span><br><br>
               <el-button type="danger" size="mini" @click="closeThirdStorePopover">我知道了</el-button>
             </div>
             &nbsp;&nbsp;&nbsp;&nbsp;
-            <el-button ref="thirdpartBtn" slot="reference" type="text">&nbsp;</el-button>
+            <el-button ref="thirdpartBtn" slot="reference" type="text" />
           </el-popover>
         </span>
       </el-form-item>

@@ -50,6 +50,11 @@
     .is-active > .el-submenu__title{
         color: #f4f4f5!important;
     }
+
+    // 屏蔽菜单栏icon
+    .svg-icon {
+      display: none;
+    }
   }
   .hideSidebar {
     .sidebar-container {

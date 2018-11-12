@@ -1,0 +1,28 @@
+.el-table.header-table {
+  .el-table__header-wrapper, .el-table__fixed-header-wrapper {
+    th {
+      background-color: #eef1f6;
+    }
+  }
+}
+.pagination {
+  background: #eef1f6;
+  margin-top: 0px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.el-breadcrumb.nav-breadcrumb {
+  .el-breadcrumb__item:last-child .el-breadcrumb__inner {
+    color: #409EFF;
+    // border-bottom: 3px solid #409EFF;
+    // padding-bottom: 8px;
+  }
+}
+.el-form-item {
+  .el-form-item__content {
+    .el-checkbox-group {
+      .el-checkbox.is-bordered {
+      }
+    }
+  }
+}

@@ -13,7 +13,24 @@
         <label>订单号:</label>
         <span>2323434982847478</span>
       </div>
-      <el-button type="default" @click="deliveryHandler">发货</el-button>
+      <div class="btn-container">
+        <el-button type="default" @click="deliveryHandler">发货</el-button>
+      </div>
+      <div>
+        <label>物流信息:</label>
+        <div class="table-show">
+          <div class="header-container">
+            <div class="item">快递公司</div>
+            <div class="item">运单号</div>
+            <div class="item">发货时间</div>
+          </div>
+          <div class="content-container">
+            <div class="item">顺丰快递</div>
+            <div class="item">8761536947190</div>
+            <div class="item">2018-10-27 08:37:17</div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="product-detail">
       <div class="title">商品详情</div>
