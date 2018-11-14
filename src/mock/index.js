@@ -68,4 +68,5 @@ Mock.mock(/\/coupon\/list/, 'post', Coupon.getList)
 
 // BaseData
 Mock.mock(/\/basedata\/getprovinces/, 'post', BaseData.getProvinces)
+Mock.mock(/\/basedata\/getcategorydatas/, 'post', BaseData.getCagegorys)
 export default Mock

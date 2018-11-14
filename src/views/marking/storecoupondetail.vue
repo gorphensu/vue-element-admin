@@ -9,12 +9,12 @@
     <!-- {{ baseForm }} -->
     <el-form ref="form" :model="baseForm" label-width="120px" size="small">
       <el-form-item label="推广渠道" prop="channel" class="form-item-margin-bottom-0">
-        <el-checkbox-group v-model="baseForm.channel" size="small">
-          <el-checkbox v-for="option in channelOptions" :key="option.id" :label="option.id" border>{{ option.name }}</el-checkbox>
-        </el-checkbox-group>
+        <el-radio-group v-model="baseForm.channel" size="small" class="checkbox-radio-group">
+          <el-radio v-for="option in channelOptions" :key="option.id" :label="option.id" border>{{ option.name }}</el-radio>
+        </el-radio-group>
       </el-form-item>
       <el-form-item>
-        <span class="detail-msg">用户可以通过公开渠道主动领取优惠券,如店铺首页,商品详情页等</span>
+        <span class="detail-msg">{{ channelTip }}</span>
       </el-form-item>
 
       <el-form-item label="优惠券名称" prop="name">
@@ -58,7 +58,7 @@
         </el-select>
       </el-form-item>
       <el-form-item>
-        <el-button type="danger" size="small">保存</el-button>
+        <el-button type="primary" size="small">保存</el-button>
         <el-button type="default" size="small">取消</el-button>
       </el-form-item>
     </el-form>
@@ -75,13 +75,16 @@ export default {
         tip: '用户可以通过公开渠道主动领取优惠券,如店铺首页,商品详情页等'
       }, {
         id: '2',
-        name: '短信营销'
+        name: '短信营销',
+        tip: '短信营销 用户可以通过公开渠道主动领取优惠券,如店铺首页,商品详情页等'
       }, {
         id: '3',
-        name: '店铺收藏'
+        name: '店铺收藏',
+        tip: '店铺收藏 用户可以通过公开渠道主动领取优惠券,如店铺首页,商品详情页等'
       }, {
         id: '4',
-        name: '非公开'
+        name: '非公开',
+        tip: '非公开 用户可以通过公开渠道主动领取优惠券,如店铺首页,商品详情页等'
       }],
       denominationOptions: [{
         id: '1',
@@ -110,7 +113,7 @@ export default {
         name: '100元'
       }],
       baseForm: {
-        channel: [],
+        channel: '1',
         name: '',
         expiryDate: [],
         denomination: '',
@@ -128,6 +131,14 @@ export default {
         return day
       }
       return 0
+    },
+    channelTip() {
+      if (!this.baseForm.channel) {
+        return ''
+      }
+      return this.channelOptions.find(opt => {
+        return opt.id === this.baseForm.channel
+      }).tip
     }
   },
   created() {

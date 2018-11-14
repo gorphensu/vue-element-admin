@@ -5,6 +5,11 @@
   
   .fast-selection {
     padding: 30px 0px;
+    .el-radio.is-bordered {
+      .el-radio__input {
+        display: none !important;
+      }
+    }
   }
   
   .search-container {

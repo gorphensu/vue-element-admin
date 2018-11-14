@@ -2,6 +2,7 @@
   .el-table__header-wrapper, .el-table__fixed-header-wrapper {
     th {
       background-color: #eef1f6;
+      border-color: #dfe6ec;
     }
   }
 }
@@ -24,5 +25,58 @@
       .el-checkbox.is-bordered {
       }
     }
+  }
+}
+.checkbox-radio-group {
+  label.el-radio {
+    padding: 8px 20px;
+  }
+  .el-radio__label {
+    padding-left: 0px;
+  }
+  .el-radio__input {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 14px;
+    height: 14px;
+    border-bottom: 18px solid #409EFF;
+    border-left: 18px solid transparent;
+    display: none;
+  }
+  .el-radio:focus:not(.is-focus):not(:active):not(.is-disabled) .el-radio__inner {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+  }
+  .el-radio__input.is-checked {
+    display: inline;
+  }
+  .el-radio__inner {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0px !important;
+    font-family: element-icons!important;
+    speak: none;
+    font-style: normal;
+    font-size: 10px;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    vertical-align: baseline;
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(-12px, 5px);
+  }
+  .el-radio__inner::before {
+    content: "\E611";
+    // color: #409EFF;
+    // color: red;
+    color: #fff;
+  }
+  .el-radio__inner::after {
+    width: 0px;
+    height: 0px;
   }
 }

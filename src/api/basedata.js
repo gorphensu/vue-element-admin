@@ -7,3 +7,11 @@ export function fetchProvinceDatas(params) {
     params
   })
 }
+
+export function fetchCategoryDatas(params) {
+  return request({
+    url: '/basedata/getcategorydatas',
+    method: 'post',
+    params
+  })
+}

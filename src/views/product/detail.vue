@@ -13,7 +13,11 @@
         </div>
         <div class="content">
           <el-form ref="baseForm" :model="baseForm" size="" class="base-form" label-width="120px">
-            <CategoryItem v-model="baseForm.category" :required="true" label="商品分类" prop="category"/>
+            <!-- <CategoryItem v-model="baseForm.category" :required="true" label="商品分类" prop="category"/> -->
+            <el-form-item label="商品分类" prop="categoryId">
+              <span>{{ baseForm.categoryName }}</span>
+              <el-button type="text" @click="changeCategory">修改分类</el-button>
+            </el-form-item>
             <el-form-item :rules="baseFormRule.title" label="商品标题" prop="title" class="width600">
               <el-input v-model="baseForm.title" placeholder="商品标题组成：商品描述+规格"/>
             </el-form-item>
@@ -248,7 +252,9 @@ export default {
         name: '颜色'
       }],
       baseForm: {
-        category: '',
+        productId: '',
+        categoryId: '',
+        categoryName: '',
         title: '',
         desc: '',
         carouselImages: [],
@@ -383,6 +389,12 @@ export default {
   created() {
     this.getFeightList()
     this.initStockTableDatas()
+    if (this.$route.query && this.$route.query.categoryid) {
+      // 从选择
+      this.baseForm.categoryId = this.$route.query.categoryid
+      this.baseForm.categoryName = this.$route.query.categoryname
+      this.baseForm.productId = this.$route.query.productid
+    }
   },
   beforeDestroy() {
     this._specItem = null
@@ -499,6 +511,12 @@ export default {
       specDatas.splice(index, 1)
     },
     batchConfirmHandler() {
+    },
+    changeCategory() {
+      const productId = this.baseForm.productId || ''
+      this.$router.push({
+        path: `/product/category?productid=${productId}`
+      })
     }
   }
 }

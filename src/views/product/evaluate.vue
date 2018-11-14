@@ -43,7 +43,7 @@
           </el-form-item>
         </div>
         <div class="btn-container">
-          <el-button type="primary" @click="onSearch">搜索</el-button>
+          <el-button type="primary" size="small" @click="onSearch">搜索</el-button>
         </div>
       </el-form>
     </div>
